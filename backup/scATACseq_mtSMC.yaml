@@ -1,0 +1,39 @@
+# configure file for scATAC_mtSMC pipeline based on pypiper
+#system configure
+tools:
+
+# basic tools 
+  java:  /usr/bin/java
+  # absolute paths to required tools
+
+# public tools 
+  bwa:    /home/jinxu/software/bwa-0.7.15/bwa
+  samtools:  /usr/local/bin/samtools
+  bedtools: /seq/bedtools-master/bin/bedtools
+  picard:  /home/jinxu/software/picard-tools-2.4.1/picard.jar
+  GATK: /home/jinxu/software/GenomeAnalysisTK.jar
+  VarScan: /home/jinxu/software/VarScan.v2.3.7.jar
+# private tools
+ # adapterTrim: /usr/local/bin/atacseq_tools/adapterTrimmingModified  
+  trimmo: /home/jinxu/software/Trimmomatic-0.36/trimmomatic-0.36.jar
+#User configure 
+resources:
+# reference information set up , using  mm9 for example 
+  ref_pref: /home/jinxu/DB/hg19_g1k_v37/human_g1k_v37.fasta
+  chrM: /home/jinxu/DB/hg19_g1k_v37/human_g1k_v37_chrM.fasta
+  dbSNP:   /home/jinxu/DB/hg19_g1k_v37/dbsnp_138.hg19.vcf
+  MTIndel:  /home/jinxu/DB/hg19_g1k_v37/ALL.chrMT.phase3_callmom-v0_4.20130502.genotypes.Indel.vcf
+  adaptor:     /home/jinxu/software/Trimmomatic-0.36/adapters/NexteraPE-PE.fa # Including potential ATACseq adaptor.  
+  chrs: /home/jinxu/DB/hg19_g1k_v37/chr.list
+parameters:
+  # parameters passed to bioinformatic tools, subclassed by tool
+  bwa:
+        group: MT
+        platform: ILLUMINA
+  mpileup:
+        q: 20 
+        Q: 20
+        overlap: -x
+  varscan:
+        min_freq: 0.001
+        min_r2: 2      

@@ -1,0 +1,19 @@
+# Pipeline started at 08-09 15:17:26
+
+ln	 raw__13-TAAGGCGA-GCGATCTA_R1.fastq.gz	0:00:00.250000	 -1
+ln	 raw__13-TAAGGCGA-GCGATCTA_R2.fastq.gz	0:00:00.250000	 -1
+rm	 fastq__	0:00:00.250000	 0.000144
+/usr/bin/java	 fastq__13-TAAGGCGA-GCGATCTA_R1_trimmed.fq	0:00:05.510000	 0.069032
+/home/jinxu/software/bwa-0.7.15/bwa	 Mapping_hg19__13-TAAGGCGA-GCGATCTA_R1.sai	0:00:15.770000	 3.049012
+/home/jinxu/software/bwa-0.7.15/bwa	 Mapping_hg19__13-TAAGGCGA-GCGATCTA_R2.sai	0:00:15.770000	 3.049148
+/home/jinxu/software/bwa-0.7.15/bwa	 Mapping_hg19__13-TAAGGCGA-GCGATCTA.sam	0:00:05.510000	 0.379908
+java	 Mapping_hg19__13-TAAGGCGA-GCGATCTA.bam	0:00:05.510000	 0.062184
+java	 Mapping_hg19__13-TAAGGCGA-GCGATCTA.rmdup.bam	0:00:05.510000	 0.058436
+/usr/local/bin/samtools	 Mapping_hg19__13-TAAGGCGA-GCGATCTA.genomeQ30PE.bam	0:00:00.250000	 0.00018
+/seq/bedtools-master/bin/bedtools	 Mapping_hg19__13-TAAGGCGA-GCGATCTA.RefTSSCount	0:00:00.250000	 -1
+/usr/local/bin/samtools	 Mapping_hg19__13-TAAGGCGA-GCGATCTA.mtQ30PE.bam	0:00:00.250000	 0.000168
+java	 Mapping_hg19__13-TAAGGCGA-GCGATCTA.target.intervals	0:14:33.880000	 4.686936
+java	 Mapping_hg19__13-TAAGGCGA-GCGATCTA.rmdup.realigned.bam	0:00:15.770000	 1.229544
+/usr/local/bin/samtools	 Mapping_hg19__13-TAAGGCGA-GCGATCTA.mpileup	0:00:05.510000	 -1
+/home/jinxu/bin/pileup_inf_rj.pl	 Mapping_hg19__13-TAAGGCGA-GCGATCTA.counts	0:00:05.510000	 -1
+java	 Mapping_hg19__13-TAAGGCGA-GCGATCTA.snv	0:00:05.510000	 -1

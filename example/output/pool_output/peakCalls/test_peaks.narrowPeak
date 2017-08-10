@@ -1,0 +1,5 @@
+chr1	564454	564654	/home/jinxu/develop/ATAC_mito_sc/example/output/pool_output/peakCalls/test_peak_1	49	.	1.99998	10.24498	4.99542	99
+chr1	565140	565517	/home/jinxu/develop/ATAC_mito_sc/example/output/pool_output/peakCalls/test_peak_2	1695	.	28.99969	175.13370	169.53282	200
+chr1	569092	569605	/home/jinxu/develop/ATAC_mito_sc/example/output/pool_output/peakCalls/test_peak_3	6416	.	98.99895	648.19519	641.63361	347
+chr5	79946888	79947088	/home/jinxu/develop/ATAC_mito_sc/example/output/pool_output/peakCalls/test_peak_4	49	.	1.99998	10.24498	4.99542	99
+chr5	134262743	134262943	/home/jinxu/develop/ATAC_mito_sc/example/output/pool_output/peakCalls/test_peak_5	49	.	1.99998	10.24498	4.99542	99
