@@ -1,4 +1,4 @@
-#ATAC_mito_sc pipeline
+## ATAC_mito_sc pipeline
 Version: 1
 Description: This repository contains a pipeline to process scATACseq data.  It combines the previous Jason's scATAC pipeline and a mitochondrial SNV calling process. The major changes is the mapping step is changed from bowtie2 to bwa 
 
@@ -26,7 +26,7 @@ Two options will be work
 	2) Add the PATH in the script, which runing the pipeline (need to add every time)
 
 
-##Runing the pipeline
+## Runing the pipeline
 1) Given the input folder, which contian all the fastq files for each single cells. This required paired-end reads separated as R1.fastq and R2.fastq
    Given the output folder, where you want to put all the result into. 
    Given the project name, which match to the cell type, experimental design etc. 
@@ -59,10 +59,12 @@ You can find the full command for running the pipeline in the example folder.
 You can run them step by step or the whole set. 
 The pipeline is currently run in sequential for each cell rather than parallel(multiple cores(8 by default) are used in the mappiing step). It make easily adapte into parallel mode if needed in the future. 
 
-##Need to add:
+## Need to add:
 
 Add following process steps: 
 	1. Make phylogenetic tree
+
 	2. Run chromVar
+
 	3. Merge ChromVar and phylogenetic tree
 
