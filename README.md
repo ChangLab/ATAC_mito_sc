@@ -5,7 +5,7 @@ Description: This repository contains a pipeline to process scATACseq data.  It 
 
 Data: 2017-08-09
 
-Author jinxu9@stanford.edu
+Author: jinxu9@stanford.edu
 
 ## Installing 
 Currently the pipeline is based on pypiper, which is a python package for making robust pipeline for bioinformatics works.
