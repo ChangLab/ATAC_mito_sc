@@ -1,8 +1,10 @@
 ## ATAC_mito_sc pipeline
 Version: 1
+
 Description: This repository contains a pipeline to process scATACseq data.  It combines the previous Jason's scATAC pipeline and a mitochondrial SNV calling process. The major changes is the mapping step is changed from bowtie2 to bwa 
 
 Data: 2017-08-09
+
 Author jinxu9@stanford.edu
 
 ## Installing 
@@ -16,13 +18,16 @@ Other tools used by this pipeline have been installed on changrila2 and should b
 
 Clone the pipeline. Then, clone this repository using one of these methods:
 ```
-  using SSH: git clone git@github.com:ChangLab/ATAC_mito_sc
-  using HTTPS: git clone https://github.com/ChangLab/ATAC_mito_sc
+  using SSH: git clone git@github.com:ChangLab/ATAC_mito_sc.git
+  using HTTPS: git clone https://github.com/ChangLab/ATAC_mito_sc.git
+
 ```
 Before running the pipeline, set up the environment variables access to the scripts used in the pipeline.
 Two options will be work  
 	1) Set the PATH in your /home/user/.bashrc( only need to configure once)
+```
 		 export PATH=$PATH:/storage/jinxu/develop/ATAC_mito_sc/src/
+```
 	2) Add the PATH in the script, which runing the pipeline (need to add every time)
 
 
@@ -57,7 +62,7 @@ project_name="test"
 ```
 You can find the full command for running the pipeline in the example folder. 
 You can run them step by step or the whole set. 
-The pipeline is currently run in sequential for each cell rather than parallel(multiple cores(8 by default) are used in the mappiing step). It make easily adapte into parallel mode if needed in the future. 
+The pipeline is currently run in sequential for each cell rather than parallel (multiple cores(8 by default) are used in the mappiing step). It make easily adapte into parallel mode if needed in the future. 
 
 ## Need to add:
 
