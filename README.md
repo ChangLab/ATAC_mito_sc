@@ -11,6 +11,11 @@ Author: jinxu9@stanford.edu
 Currently the pipeline is based on pypiper, which is a python package for making robust pipeline for bioinformatics works.
 Pypiper has been installed by user-specific way on changrila2
 You can do a user-specific install of pypiper as follow:
+Note:
+
+The current pipeline is developed under pypiper-0.3 on  python2.7.
+Havn't test on other versions yet. 
+
 ```
 pip install --user https://github.com/epigen/pypiper/zipball/master
 ```
