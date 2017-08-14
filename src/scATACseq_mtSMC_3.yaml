@@ -37,4 +37,4 @@ parameters:
         overlap: -x
   varscan:
         min_freq: 0.01
-       min_r2: 2      
+        min_r2: 2      
