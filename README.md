@@ -40,9 +40,25 @@ input=" /home/jinxu/scATAC/pipeline/ATAC_mito/pipelines/ATAC_mito_sc/example/tes
 output="/home/jinxu/develop/ATAC_mito_sc/example/output"
 project_name="test"
 ```
-2) The pipeline will take all the files from input folder and make sample list 
+2) Before running the pipeliine, sample sheet which  contians 
+
+	1. Sample ID 
+	
+	2. Path to Read1 
+	
+	3. Path to Read2
+	
+	4. Project name (such as cell type etc.) 
+
+    need to be generated first. 
+
+
+The pipeline include a perl script to generate the sample sheet, if the fastq files was named by barcode ( 13-TAAGGCGA-GCGATCTA\* ) or ended with  "R?\_fastq.gz"
+
+The script will take all the files from input folder and make sample list 
+
 ```
-0_Make_SampleTable   $input  $project_name  sample.csv
+0_Make_SampleTable   $input  $project_name  sample.csv  [barcode|trim] 
 
 ```
 3) The pipeline will process each samples through the core pipeline, which align read to genome, filter genome /mito reads, remove duplicates,SNP calling and etc.  
