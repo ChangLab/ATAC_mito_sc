@@ -13,7 +13,7 @@ Total_TSS_reads	 60	scATAC_mtSMC
 TSS_rate	 0.34	scATAC_mtSMC
 mtQ30PE_reads	 18695	scATAC_mtSMC
 mtQ30PE_rate	 0.32	scATAC_mtSMC
-mt_aver_depth	 68.8686	scATAC_mtSMC
-Time	 0:16:02	scATAC_mtSMC
-Success	 08-09 15:33:28	scATAC_mtSMC
+mt_aver_depth	 68.87	scATAC_mtSMC
+Time	 0:00:01	scATAC_mtSMC
+Success	 08-16 14:13:08	scATAC_mtSMC
 reads_inpeak	 0 

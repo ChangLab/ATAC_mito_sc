@@ -1,0 +1,19 @@
+File_MB	 0.0004	scATAC_mtSMC
+GenomeV	 hg19	scATAC_mtSMC
+Raw_reads	 2	scATAC_mtSMC
+Trimmed_reads	 2.0	scATAC_mtSMC
+Trim_loss_rate	 0.0	scATAC_mtSMC
+Aligned_reads	 0	scATAC_mtSMC
+Alignment_rate	 0.0	scATAC_mtSMC
+rmdup_reads	 0	scATAC_mtSMC
+dup_rate	 0	scATAC_mtSMC
+genomeQ30PE_reads	 0	scATAC_mtSMC
+genomeQ30PE_rate	 0	scATAC_mtSMC
+Total_TSS_reads	 0	scATAC_mtSMC
+TSS_rate	 0	scATAC_mtSMC
+mtQ30PE_reads	 0	scATAC_mtSMC
+mtQ30PE_rate	 0	scATAC_mtSMC
+mt_aver_depth	 0	scATAC_mtSMC
+Time	 0:00:00	scATAC_mtSMC
+Success	 08-16 14:13:09	scATAC_mtSMC
+reads_inpeak	 0 

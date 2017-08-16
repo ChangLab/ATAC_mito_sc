@@ -1,2 +1,2 @@
-13-TAAGGCGA-GCGATCTA	13-TAAGGCGA-GCGATCTA_S1_001_R1.fastq.gz	13-TAAGGCGA-GCGATCTA_S1_001_R2.fastq.gz	/home/jinxu/scATAC/pipeline/ATAC_mito/pipelines/ATAC_mito_sc/example/test_data/	test
-15-AGGCAGAA-GCGATCTA	15-AGGCAGAA-GCGATCTA_S3_001_R1.fastq.gz	15-AGGCAGAA-GCGATCTA_S3_001_R2.fastq.gz	/home/jinxu/scATAC/pipeline/ATAC_mito/pipelines/ATAC_mito_sc/example/test_data/	test
+13-TAAGGCGA-GCGATCTA	13-TAAGGCGA-GCGATCTA_S1_001_R1.fastq.gz	13-TAAGGCGA-GCGATCTA_S1_001_R2.fastq.gz	/home/jinxu/develop/ATAC_mito_sc/example/test_data	test
+15-AGGCAGAA-GCGATCTA	15-AGGCAGAA-GCGATCTA_S3_001_R1.fastq.gz	15-AGGCAGAA-GCGATCTA_S3_001_R2.fastq.gz	/home/jinxu/develop/ATAC_mito_sc/example/test_data	test

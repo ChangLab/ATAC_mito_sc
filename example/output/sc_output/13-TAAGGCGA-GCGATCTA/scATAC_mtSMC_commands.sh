@@ -1,16 +1,16 @@
-# Pipeline started at 08-09 15:17:26
+# Pipeline started at 08-16 11:12:50
 
-ln -sf /home/jinxu/scATAC/pipeline/ATAC_mito/pipelines/ATAC_mito_sc/example/test_data//13-TAAGGCGA-GCGATCTA_S1_001_R1.fastq.gz /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/raw/13-TAAGGCGA-GCGATCTA_R1.fastq.gz
+ln -sf /home/jinxu/develop/ATAC_mito_sc/example/test_data/13-TAAGGCGA-GCGATCTA_S1_001_R1.fastq.gz /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/raw/13-TAAGGCGA-GCGATCTA_R1.fastq.gz
 
-ln -sf /home/jinxu/scATAC/pipeline/ATAC_mito/pipelines/ATAC_mito_sc/example/test_data//13-TAAGGCGA-GCGATCTA_S1_001_R2.fastq.gz /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/raw/13-TAAGGCGA-GCGATCTA_R2.fastq.gz
+ln -sf /home/jinxu/develop/ATAC_mito_sc/example/test_data/13-TAAGGCGA-GCGATCTA_S1_001_R2.fastq.gz /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/raw/13-TAAGGCGA-GCGATCTA_R2.fastq.gz
 
  rm -f  /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/stats.tsv
 
-/usr/bin/java -Xmx100m -jar /home/jinxu/software/Trimmomatic-0.36/trimmomatic-0.36.jar PE  -threads 2 /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/raw/13-TAAGGCGA-GCGATCTA_R1.fastq.gz /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/raw/13-TAAGGCGA-GCGATCTA_R2.fastq.gz /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/fastq/13-TAAGGCGA-GCGATCTA_R1_trimmed.fq /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/fastq/13-TAAGGCGA-GCGATCTA_R1_unpaired.fq /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/fastq/13-TAAGGCGA-GCGATCTA_R2_trimmed.fq /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/fastq/13-TAAGGCGA-GCGATCTA_R2_unpaired.fq ILLUMINACLIP:/home/jinxu/software/Trimmomatic-0.36/adapters/NexteraPE-PE.fa:2:30:10
+/usr/bin/java -Xmx100m -jar /home/jinxu/software/Trimmomatic-0.36/trimmomatic-0.36.jar PE  -threads 8 /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/raw/13-TAAGGCGA-GCGATCTA_R1.fastq.gz /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/raw/13-TAAGGCGA-GCGATCTA_R2.fastq.gz /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/fastq/13-TAAGGCGA-GCGATCTA_R1_trimmed.fq /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/fastq/13-TAAGGCGA-GCGATCTA_R1_unpaired.fq /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/fastq/13-TAAGGCGA-GCGATCTA_R2_trimmed.fq /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/fastq/13-TAAGGCGA-GCGATCTA_R2_unpaired.fq ILLUMINACLIP:/home/jinxu/software/Trimmomatic-0.36/adapters/NexteraPE-PE.fa:2:30:10
 
-/home/jinxu/software/bwa-0.7.15/bwa aln  -t  2 /home/jinxu/DB/hg19_g1k_v37/human_g1k_v37.fasta /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/fastq/13-TAAGGCGA-GCGATCTA_R1_trimmed.fq -f /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/Mapping_hg19/13-TAAGGCGA-GCGATCTA_R1.sai
+/home/jinxu/software/bwa-0.7.15/bwa aln  -t  8 /home/jinxu/DB/hg19_g1k_v37/human_g1k_v37.fasta /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/fastq/13-TAAGGCGA-GCGATCTA_R1_trimmed.fq -f /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/Mapping_hg19/13-TAAGGCGA-GCGATCTA_R1.sai
 
-/home/jinxu/software/bwa-0.7.15/bwa aln  -t 2 /home/jinxu/DB/hg19_g1k_v37/human_g1k_v37.fasta /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/fastq/13-TAAGGCGA-GCGATCTA_R2_trimmed.fq -f /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/Mapping_hg19/13-TAAGGCGA-GCGATCTA_R2.sai
+/home/jinxu/software/bwa-0.7.15/bwa aln  -t 8 /home/jinxu/DB/hg19_g1k_v37/human_g1k_v37.fasta /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/fastq/13-TAAGGCGA-GCGATCTA_R2_trimmed.fq -f /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/Mapping_hg19/13-TAAGGCGA-GCGATCTA_R2.sai
 
 /home/jinxu/software/bwa-0.7.15/bwa sampe -r "@RG\tID:13-TAAGGCGA-GCGATCTA\tSM:MT\tPL:ILLUMINA" /home/jinxu/DB/hg19_g1k_v37/human_g1k_v37.fasta /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/Mapping_hg19/13-TAAGGCGA-GCGATCTA_R1.sai /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/Mapping_hg19/13-TAAGGCGA-GCGATCTA_R2.sai /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/fastq/13-TAAGGCGA-GCGATCTA_R1_trimmed.fq /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/fastq/13-TAAGGCGA-GCGATCTA_R2_trimmed.fq -f /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/Mapping_hg19/13-TAAGGCGA-GCGATCTA.sam
 
@@ -26,7 +26,7 @@ java -Xmx4g -jar /home/jinxu/software/picard-tools-2.4.1/picard.jar MarkDuplicat
 
 /usr/local/bin/samtools view -b -q  30   -f 0x2 /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/Mapping_hg19/13-TAAGGCGA-GCGATCTA.rmdup.bam  -o /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/Mapping_hg19/13-TAAGGCGA-GCGATCTA.mtQ30PE.bam  chrMT 
 
-java -Xmx8g -jar /home/jinxu/software/GenomeAnalysisTK.jar  -R /home/jinxu/DB/hg19_g1k_v37/human_g1k_v37.fasta  -T RealignerTargetCreator  -known /home/jinxu/DB/hg19_g1k_v37/ALL.chrMT.phase3_callmom-v0_4.20130502.genotypes.Indel.vcf  -known /home/jinxu/DB/hg19_g1k_v37/Mills_and_1000G_gold_standard.indels.hg19.sites.vcf  -nt 2  -I /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/Mapping_hg19/13-TAAGGCGA-GCGATCTA.rmdup.bam  -o /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/Mapping_hg19/13-TAAGGCGA-GCGATCTA.target.intervals
+java -Xmx8g -jar /home/jinxu/software/GenomeAnalysisTK.jar  -R /home/jinxu/DB/hg19_g1k_v37/human_g1k_v37.fasta  -T RealignerTargetCreator  -known /home/jinxu/DB/hg19_g1k_v37/ALL.chrMT.phase3_callmom-v0_4.20130502.genotypes.Indel.vcf  -known /home/jinxu/DB/hg19_g1k_v37/Mills_and_1000G_gold_standard.indels.hg19.sites.vcf  -nt 8  -I /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/Mapping_hg19/13-TAAGGCGA-GCGATCTA.rmdup.bam  -o /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/Mapping_hg19/13-TAAGGCGA-GCGATCTA.target.intervals
 
 java -Xmx10g -jar /home/jinxu/software/GenomeAnalysisTK.jar -R /home/jinxu/DB/hg19_g1k_v37/human_g1k_v37.fasta -T IndelRealigner  -known /home/jinxu/DB/hg19_g1k_v37/Mills_and_1000G_gold_standard.indels.hg19.sites.vcf  -known /home/jinxu/DB/hg19_g1k_v37/ALL.chrMT.phase3_callmom-v0_4.20130502.genotypes.Indel.vcf  -I /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/Mapping_hg19/13-TAAGGCGA-GCGATCTA.rmdup.bam  -targetIntervals /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/Mapping_hg19/13-TAAGGCGA-GCGATCTA.target.intervals -o /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/Mapping_hg19/13-TAAGGCGA-GCGATCTA.rmdup.realigned.bam
 
@@ -37,4 +37,92 @@ java -Xmx10g -jar /home/jinxu/software/GenomeAnalysisTK.jar -R /home/jinxu/DB/hg
  awk 'BEGIN{sum=0;num=0}''{sum+=$4;num++}''END{print sum/num}' /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/Mapping_hg19/13-TAAGGCGA-GCGATCTA.counts
 
 java -Xmx4g  -jar /home/jinxu/software/VarScan.v2.3.7.jar  pileup2snp /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/Mapping_hg19/13-TAAGGCGA-GCGATCTA.mpileup  --min-var-freq 0.01  --min-reads2 2  > /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/Mapping_hg19/13-TAAGGCGA-GCGATCTA.snv
+
+# Pipeline started at 08-16 13:25:58
+
+ rm -f  /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/stats.tsv
+
+ awk 'BEGIN{sum=0}''{sum+=$6;}''END{print sum}' /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/Mapping_hg19/13-TAAGGCGA-GCGATCTA.RefTSSCount
+
+ awk 'BEGIN{sum=0;num=0}''{sum+=$4;num++}''END{print sum/num}' /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/Mapping_hg19/13-TAAGGCGA-GCGATCTA.counts
+
+# Pipeline started at 08-16 13:42:31
+
+ rm -f  /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/stats.tsv
+
+ awk 'BEGIN{sum=0}''{sum+=$6;}''END{print sum}' /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/Mapping_hg19/13-TAAGGCGA-GCGATCTA.RefTSSCount
+
+ awk 'BEGIN{sum=0;}''{sum+=$4;}''END{print sum}' /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/Mapping_hg19/13-TAAGGCGA-GCGATCTA.counts
+
+ awk 'BEGIN{num=0;}''{num++;}''END{print num}' /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/Mapping_hg19/13-TAAGGCGA-GCGATCTA.counts
+
+# Pipeline started at 08-16 13:45:26
+
+ rm -f  /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/stats.tsv
+
+ awk 'BEGIN{sum=0}''{sum+=$6;}''END{print sum}' /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/Mapping_hg19/13-TAAGGCGA-GCGATCTA.RefTSSCount
+
+ awk 'BEGIN{sum=0;}''{sum+=$4;}''END{print sum}' /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/Mapping_hg19/13-TAAGGCGA-GCGATCTA.counts
+
+ awk 'BEGIN{num=0;}''{num++;}''END{print num}' /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/Mapping_hg19/13-TAAGGCGA-GCGATCTA.counts
+
+# Pipeline started at 08-16 13:46:36
+
+ rm -f  /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/stats.tsv
+
+ awk 'BEGIN{sum=0}''{sum+=$6;}''END{print sum}' /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/Mapping_hg19/13-TAAGGCGA-GCGATCTA.RefTSSCount
+
+ awk 'BEGIN{sum=0;}''{sum+=$4;}''END{print sum}' /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/Mapping_hg19/13-TAAGGCGA-GCGATCTA.counts
+
+ awk 'BEGIN{num=0;}''{num++;}''END{print num}' /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/Mapping_hg19/13-TAAGGCGA-GCGATCTA.counts
+
+# Pipeline started at 08-16 13:47:05
+
+ rm -f  /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/stats.tsv
+
+ awk 'BEGIN{sum=0}''{sum+=$6;}''END{print sum}' /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/Mapping_hg19/13-TAAGGCGA-GCGATCTA.RefTSSCount
+
+ awk 'BEGIN{sum=0;}''{sum+=$4;}''END{print sum}' /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/Mapping_hg19/13-TAAGGCGA-GCGATCTA.counts
+
+ awk 'BEGIN{num=0;}''{num++;}''END{print num}' /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/Mapping_hg19/13-TAAGGCGA-GCGATCTA.counts
+
+# Pipeline started at 08-16 13:51:26
+
+ rm -f  /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/stats.tsv
+
+ awk 'BEGIN{sum=0}''{sum+=$6;}''END{print sum}' /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/Mapping_hg19/13-TAAGGCGA-GCGATCTA.RefTSSCount
+
+ awk 'BEGIN{sum=0;}''{sum+=$4;}''END{print sum}' /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/Mapping_hg19/13-TAAGGCGA-GCGATCTA.counts
+
+ awk 'BEGIN{num=0;}''{num++;}''END{print num}' /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/Mapping_hg19/13-TAAGGCGA-GCGATCTA.counts
+
+# Pipeline started at 08-16 13:52:22
+
+ rm -f  /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/stats.tsv
+
+ awk 'BEGIN{sum=0}''{sum+=$6;}''END{print sum}' /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/Mapping_hg19/13-TAAGGCGA-GCGATCTA.RefTSSCount
+
+ awk 'BEGIN{sum=0;}''{sum+=$4;}''END{print sum}' /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/Mapping_hg19/13-TAAGGCGA-GCGATCTA.counts
+
+ awk 'BEGIN{num=0;}''{num++;}''END{print num}' /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/Mapping_hg19/13-TAAGGCGA-GCGATCTA.counts
+
+# Pipeline started at 08-16 13:53:56
+
+ rm -f  /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/stats.tsv
+
+ awk 'BEGIN{sum=0}''{sum+=$6;}''END{print sum}' /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/Mapping_hg19/13-TAAGGCGA-GCGATCTA.RefTSSCount
+
+ awk 'BEGIN{sum=0;}''{sum+=$4;}''END{print sum}' /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/Mapping_hg19/13-TAAGGCGA-GCGATCTA.counts
+
+ awk 'BEGIN{num=0;}''{num++;}''END{print num}' /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/Mapping_hg19/13-TAAGGCGA-GCGATCTA.counts
+
+# Pipeline started at 08-16 14:13:08
+
+ rm -f  /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/stats.tsv
+
+ awk 'BEGIN{sum=0}''{sum+=$6;}''END{print sum}' /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/Mapping_hg19/13-TAAGGCGA-GCGATCTA.RefTSSCount
+
+ awk 'BEGIN{sum=0;}''{sum+=$4;}''END{print sum}' /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/Mapping_hg19/13-TAAGGCGA-GCGATCTA.counts
+
+ awk 'BEGIN{num=0;}''{num++;}''END{print num}' /home/jinxu/develop/ATAC_mito_sc/example/output/sc_output/13-TAAGGCGA-GCGATCTA/Mapping_hg19/13-TAAGGCGA-GCGATCTA.counts
 
