@@ -29,7 +29,7 @@ bedtools intersect -v -a $p_output/peakCalls/$output_tag"_summits.bed" -b $black
 for file in `ls $sc_output/*/*/*.genomeQ30PE.bam` 
 do
 total_reads=`samtools view -c -F 1284 $file`
-reads_inpeak=` bedtools coverage -abam $file -b   $p_output/peakCalls/$output_tag.summits.500bp.bed  -counts |awk 'BEGIN{sum=0}''{sum+=$5}''END{print sum}' `
+reads_inpeak=` bedtools coverage -abam $file -b   $p_output/peakCalls/$output_tag.summits.500bp.bed  -counts |awk 'BEGIN{sum=0}''{sum+=$6}''END{print sum}' `
 stat_path=`echo $file | perl -ne '{my @a=split(/\//,$_); print join("/",@a[0..$#a-2])}' -  `
 #echo $file 
 #echo $stat_path
