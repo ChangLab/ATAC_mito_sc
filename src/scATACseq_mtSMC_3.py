@@ -75,7 +75,7 @@ ngstk.make_dir(fastq_folder)
 # clear the stats.tsv
 stat_file = output + "stats.tsv"
 cmd = " rm -f  " +  stat_file 
-pm.run(cmd,fastq_folder) 
+pm.run(cmd,output) 
 
 pm.report_result("File_MB", ngstk.get_file_size(local_input_files))
 #pm.report_result("Read_type", args.single_or_paired)
@@ -101,8 +101,10 @@ pm.clean_add(output + args.sample_name + "*.fq", conditional=True)
 n_trim = float(ngstk.count_reads(trimmed_fastq, args.paired_end))
 rr = float(pm.get_stat("Raw_reads"))
 pm.report_result("Trimmed_reads", n_trim)
-pm.report_result("Trim_loss_rate", round((rr - n_trim) / rr, 2))
-
+if rr != 0: 
+	pm.report_result("Trim_loss_rate", round((rr - n_trim) / rr, 2))
+else:
+	pm.report_result("Trim_loss_rate","0")
 # End of Adaptor trimming 
 
 # bwa mapping to whole genome --step1 
@@ -158,7 +160,11 @@ if count_steps == args.stopN:
 ar = ngstk.count_mapped_reads(map_bam, args.paired_end)
 pm.report_result("Aligned_reads", ar)
 tr = float(pm.get_stat("Trimmed_reads"))
-pm.report_result("Alignment_rate", round(float(ar) / float(tr), 2))
+if tr != 0: 
+	pm.report_result("Alignment_rate", round(float(ar) / float(tr), 2))
+else:
+	
+	pm.report_result("Alignment_rate", "0")
 
 # rmdup --step3
 rmdup_bam = os.path.join(map_folder , args.sample_name + ".rmdup.bam")
@@ -185,7 +191,11 @@ pm.report_result("rmdup_reads", ar)
 #        try:
                 # wrapped in try block in case Trimmed_reads is not reported in this pipeline.
 tr = float(pm.get_stat("Aligned_reads"))
-pm.report_result("dup_rate" , round( 1 - float(ar) / float(tr), 2))
+if tr != 0: 
+	pm.report_result("dup_rate" , round( 1 - float(ar) / float(tr), 2))
+else:
+	pm.report_result("dup_rate" , "0")
+	
 #        except:
 
  #               pass
@@ -216,7 +226,10 @@ pm.report_result("genomeQ30PE_reads", ar)
 #        try:
                 # wrapped in try block in case Trimmed_reads is not reported in this pipeline.
 tr = float(pm.get_stat("Aligned_reads"))
-pm.report_result("genomeQ30PE_rate", round(float(ar) / float(tr), 2))
+if tr != 0: 
+	pm.report_result("genomeQ30PE_rate", round(float(ar) / float(tr), 2))
+else:
+	pm.report_result("genomeQ30PE_rate", "0")
 #        except:
 
 #                pass
@@ -235,8 +248,11 @@ cmd = " awk 'BEGIN{sum=0}''{sum+=$6;}''END{print sum}' " + TSS_count
 Total_reads_TSS = pm.checkprint(cmd)
 pm.report_result("Total_TSS_reads", Total_reads_TSS)
 tr = float(pm.get_stat("genomeQ30PE_reads"))
-pm.report_result("TSS_rate", round(float(Total_reads_TSS) /(2 * float(tr)), 2))
-
+if tr != 0: 
+	pm.report_result("TSS_rate", round(float(Total_reads_TSS) /(2 * float(tr)), 2))
+else:
+	
+	pm.report_result("TSS_rate", "0")
 # step 5 
 # count number of reads on mt q30 PE
 mt_bam = os.path.join(map_folder, args.sample_name + ".mtQ30PE.bam")
@@ -252,7 +268,11 @@ pm.report_result("mtQ30PE_reads", ar)
 #        try:
                 # wrapped in try block in case Trimmed_reads is not reported in this pipeline.
 tr = float(pm.get_stat("Aligned_reads"))
-pm.report_result("mtQ30PE_rate", round(float(ar) / float(tr), 2))
+if tr!= 0: 
+	pm.report_result("mtQ30PE_rate", round(float(ar) / float(tr), 2))
+else:
+	
+	pm.report_result("mtQ30PE_rate", "0")
 #        except:
 
 #                pass
@@ -318,19 +338,29 @@ pm.run(cmd,count)
 #
 # caculate average depth 
 # awk 'BEGIN{sum=0;num=0}''{sum+=$4;num++}''END{print sum/num}'  count  
-cmd = " awk 'BEGIN{sum=0;num=0}''{sum+=$4;num++}''END{print sum/num}' " + count	
-mt_aver_depth = pm.checkprint(cmd)
-pm.report_result("mt_aver_depth", mt_aver_depth)
-
+cmd = " awk 'BEGIN{sum=0;}''{sum+=$4;}''END{print sum}' " + count	
+mt_total_depth = pm.checkprint(cmd)
+cmd = " awk 'BEGIN{num=0;}''{num++;}''END{print num}' " + count	
+mt_total_site =pm.checkprint(cmd)
+#print(int(mt_total_site))
+if int(mt_total_site)==0:
+	pm.report_result("mt_aver_depth", "0")
+	print(mt_total_site)
+else:
+	pm.report_result("mt_aver_depth", round(float(mt_total_depth) / float(mt_total_site), 2))
 # call somatic mutation for each one  --step7
 # java -jar /home/jinxu/software/VarScan.v2.3.7.jar   pileup2snp   13-TAAGGCGA-GCGATCTA.mpileup  --min-var-freq 0.001 --min-reads2 4
-snv = os.path.join(map_folder, args.sample_name + ".snv")
-cmd = "java -Xmx4g  -jar " + tools.VarScan + " "
-cmd += " pileup2snp " +  mpileup + " "
-cmd += " --min-var-freq " + str(param.varscan.min_freq) + " " 
-cmd += " --min-reads2 " + str(param.varscan.min_r2) + " "
-cmd += " > " + snv
-pm.run(cmd,snv)
+if int(mt_total_site) != 0:
+	snv = os.path.join(map_folder, args.sample_name + ".snv")
+	cmd = "java -Xmx4g  -jar " + tools.VarScan + " "
+	cmd += " pileup2snp " +  mpileup + " "
+	cmd += " --min-var-freq " + str(param.varscan.min_freq) + " " 
+	cmd += " --min-reads2 " + str(param.varscan.min_r2) + " "
+	cmd += " > " + snv
+	pm.run(cmd,snv)
+else:
+
+	snv = os.path.join(map_folder, args.sample_name + ".snv")
 # filter somatic mutation  --step6
 # summarINPUT=test.samy using outside script.   --step7
 pm.stop_pipeline()
