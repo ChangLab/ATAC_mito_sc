@@ -1,0 +1,19 @@
+#2018-05-09
+1.The previous ATAC-seq adaptor sequence doesn't work for trimmer 
+Remove other adaptor sequence make it works
+
+2.bwa assign paired reads mapped to the same location as non proper pairs with flat  161+81 , 97+145
+To correction this, change the method for fileter paired reads 
+When reads shorter than 75, mappiing quanlity is lower, adjust Q30 -> Q10. 
+2018-07-07
+
+To resovle the problem from bwa mapping, when R1 and R2 are the same fragment and less than the reads length. 
+Using the old adaptor trimming method, which shift the reads with 1 bp.
+
+2018-07-30:
+copy the source code of adapterTrimming from /seq/adapterTrim/atacseq_tools_changrila 
+Modified line 128 in  adapterTrimmingModified.cc according to adapterTrimming.cc
+The new file is renamed as adapterTrimming.cc and build in the bin folder
+
+The final tool /home/jinxu/pipeline_pypiper/ATAC_mito_sc/test_trimming/adapterTrim/atacseq_tools_changrila/bin/adapterTrimming 
+was copied to src for this pipeline 

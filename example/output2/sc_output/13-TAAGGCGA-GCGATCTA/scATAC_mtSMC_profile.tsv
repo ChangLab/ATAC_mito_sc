@@ -1,0 +1,20 @@
+# Pipeline started at 07-30 15:20:47
+
+ln	 None	0:00:00.250000	 -1
+ln	 None	0:00:00.250000	 -1
+# Pipeline started at 07-30 15:23:26
+
+/home/jinxu/pipeline_pypiper/ATAC_mito_sc/src/adapterTrimming	 None	0:00:15.770000	 0.001456
+/home/jinxu/software/bwa-0.7.15/bwa	 None	0:00:15.770000	 3.0729
+/home/jinxu/software/bwa-0.7.15/bwa	 None	0:00:15.770000	 3.10168
+/home/jinxu/software/bwa-0.7.15/bwa	 None	0:00:15.770000	 3.783032
+java	 None	0:00:05.510000	 0.041432
+java	 None	0:00:15.770000	 1.688188
+/usr/local/bin/samtools	 None	0:00:05.510000	 0.003584
+/seq/bedtools-master/bin/bedtools	 None	0:00:05.510000	 -1
+/usr/local/bin/samtools	 None	0:00:00.250000	 0.000164
+java	 None	0:07:33.420000	 4.389716
+java	 None	0:00:51.290000	 1.592172
+/usr/local/bin/samtools	 None	0:00:05.510000	 -1
+/home/jinxu/bin/pileup_inf_rj.pl	 None	0:00:05.510000	 -1
+java	 None	0:00:05.510000	 -1

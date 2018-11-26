@@ -16,7 +16,7 @@ while(<IN>)
 	push @values, $a[1];
 #	$hash{$a[0]}=$a[1];
 }
-
+#print $names[$#names] ,"\n";
 if($ARGV[1] && $ARGV[1] eq "head")
 {
 #	print join("\t",(keys %hash)),"\n";

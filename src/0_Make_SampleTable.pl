@@ -23,6 +23,7 @@ if($#files%2 ==1)
 else
 {
 	print "Odd number of files \n";
+	print $#files,"\n";
 	print "Check input folder to make sure  \n ";
 	print "	1. paired end reads \n";
 	print " 2. Both read1 and read2 are included\n";

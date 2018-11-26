@@ -1,4 +1,6 @@
 # Need sample.csv as input file and output directory 
+# Input 1: sample list (tsv or csv)
+# Input 2: output directory
 input=$1
 output=$2
 while read line ;

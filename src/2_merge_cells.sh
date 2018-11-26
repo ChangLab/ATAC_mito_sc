@@ -6,7 +6,7 @@ output_tag=$2
 res_chrM="/home/jinxu/DB/hg19_g1k_v37/chrM.len"
 res_ref="/home/jinxu/DB/hg19_g1k_v37/human_g1k_v37.fasta"
 varScan="/home/jinxu/software/VarScan.v2.3.7.jar"
-ref_gene_TSS="/home/jinxu/DB/hg19/annotation/hg19_refGene_Tss.txt"
+ref_gene_TSS="/home/jinxu/pipeline_perl/ATAC-seq-perl-jin/Data/hg19_refseq_genes_TSS.bed.filter"
 blacklist='/home/jinxu/scATAC/scATAC-seq-Jason/01_additionalData/BlacklistFiles/hg19_blacklist.JDB.bed'
 # call SNP using merged bam file. mtQ30PE were not re-aligned  
 samtools merge $p_output/$output_tag.merge.realign.bam  $sc_output/*/*/*.realigned.bam

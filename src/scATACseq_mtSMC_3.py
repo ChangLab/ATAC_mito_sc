@@ -80,22 +80,36 @@ pm.run(cmd,output)
 pm.report_result("File_MB", ngstk.get_file_size(local_input_files))
 #pm.report_result("Read_type", args.single_or_paired)
 pm.report_result("GenomeV", args.genome_assembly)
-# Adaptor trimming
-pm.timestamp("### Adapter trimming: ")
-trimmed_fastq= fastq_folder + args.sample_name + "_R1_trimmed.fq"
-trimmed_fastq_R2= fastq_folder + args.sample_name + "_R2_trimmed.fq"
-cmd = tools.java +" -Xmx" + str(pm.mem) +" -jar " + tools.trimmo + " PE " + " -threads " + str(pm.cores) + " "
+# Adaptor trimming with trimmatic 
+#pm.timestamp("### Adapter trimming: ")
+#trimmed_fastq= fastq_folder + args.sample_name + "_R1_trimmed.fq"
+#trimmed_fastq_R2= fastq_folder + args.sample_name + "_R2_trimmed.fq"
+#cmd = tools.java +" -Xmx" + str(pm.mem) +" -jar " + tools.trimmo + " PE " + " -threads " + str(pm.cores) + " "
+#cmd += local_input_files[0] + " "
+#cmd += local_input_files[1] + " " 
+#cmd += trimmed_fastq + " "
+#cmd += fastq_folder + args.sample_name + "_R1_unpaired.fq "
+#cmd += trimmed_fastq_R2 + " "
+#cmd += fastq_folder +args.sample_name + "_R2_unpaired.fq "
+#cmd +=  "ILLUMINACLIP:"+ res.adaptor + ":2:30:10" 
+#pm.run(cmd, trimmed_fastq)
+
+# Adaotir trimming with in house script by Jason 
+pm.timestamp("### Adapter trimming: in-house script")
+#trimmed_fastq= raw_folder + args.sample_name + "_R1.trim.fastq"
+#trimmed_fastq_R2= raw_folder + args.sample_name + "_R2.trim.fastq"
+
+trimmed_fastq= local_input_files[0].replace("fastq.gz","trim.fastq")
+trimmed_fastq_R2= local_input_files[1].replace("fastq.gz","trim.fastq")
+cmd = tools.trim + " "
 cmd += local_input_files[0] + " "
-cmd += local_input_files[1] + " " 
-cmd += trimmed_fastq + " "
-cmd += fastq_folder + args.sample_name + "_R1_unpaired.fq "
-cmd += trimmed_fastq_R2 + " "
-cmd += fastq_folder +args.sample_name + "_R2_unpaired.fq "
-#cmd +=  "ILLUMINACLIP:"+ paths.adaptor + ":2:30:10:LEADING:3TRAILING:3SLIDINGWINDOW:4:15MINLEN:36" 
-cmd +=  "ILLUMINACLIP:"+ res.adaptor + ":2:30:10" 
+cmd += local_input_files[1] 
+pm.run(cmd,trimmed_fastq)
+
 n_raw = int(ngstk.count_reads(local_input_files[0],args.paired_end))
 pm.report_result("Raw_reads",n_raw)
-pm.run(cmd, trimmed_fastq)
+
+
 pm.clean_add(output + args.sample_name + "*.fq", conditional=True)
 # report raw reads and trimmed reads
 n_trim = float(ngstk.count_reads(trimmed_fastq, args.paired_end))
