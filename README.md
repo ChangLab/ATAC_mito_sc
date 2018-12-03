@@ -85,12 +85,6 @@ You can find the full command for running the pipeline in the example folder.
 You can run them step by step or the whole set. 
 The pipeline is currently run in sequential for each cell rather than parallel (multiple cores(8 by default) are used in the mappiing step). It make easily adapte into parallel mode if needed in the future. 
 
-## Need to add:
+## Following Steps
 
-Add following process steps: 
-	1. Make phylogenetic tree
-
-	2. Run chromVar
-
-	3. Merge ChromVar and phylogenetic tree
 
