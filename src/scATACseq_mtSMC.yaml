@@ -1,0 +1,43 @@
+# configure file for scATAC_mtSMC pipeline based on pypiper
+#system configure
+#2018-March-26
+#correction adaptor trimming step by replace adaptor sequence from NexteraPE-PE.fa to ATACseq.fa
+tools:
+
+# basic tools 
+  java:  /usr/bin/java
+  # absolute paths to required tools
+
+# public tools 
+  bwa:    /home/jinxu/software/bwa-0.7.15/bwa
+  samtools:  /usr/local/bin/samtools
+  bedtools: /seq/bedtools-master/bin/bedtools
+  picard:  /home/jinxu/software/picard-tools-2.4.1/picard.jar
+  GATK: /home/jinxu/software/GenomeAnalysisTK.jar
+  VarScan: /home/jinxu/software/VarScan.v2.3.7.jar
+  trimmo: /home/jinxu/software/Trimmomatic-0.36/trimmomatic-0.36.jar
+  trim: /home/jinxu/pipeline_pypiper/ATAC_mito_sc/src/adapterTrimming
+  pileup_rj: /home/jinxu/bin/pileup_inf_rj.pl
+#User configure 
+resources:
+  ref_pref: /home/jinxu/DB/hg19_g1k_v37/human_g1k_v37.fasta
+  ref_TSS:  /home/jinxu/DB/hg19/annotation/hg19_refGene_TSSRound2kb.bed 
+  chrM: /home/jinxu/DB/hg19_g1k_v37/human_g1k_v37_chrM.fasta
+  dbSNP:   /home/jinxu/DB/hg19_g1k_v37/dbsnp_138.hg19.vcf
+  GIndel: /home/jinxu/DB/hg19_g1k_v37/Mills_and_1000G_gold_standard.indels.hg19.sites.vcf
+  MTIndel:  /home/jinxu/DB/hg19_g1k_v37/ALL.chrMT.phase3_callmom-v0_4.20130502.genotypes.Indel.vcf
+  chrM_len: /home/jinxu/DB/hg19_g1k_v37/chrM.len
+  adaptor:     /home/jinxu/software/Trimmomatic-0.36/adapters/ATACseq.fa # Including potential ATACseq adaptor.  
+  chrs: chr1 chr2 chr3 chr4 chr5 chr6 chr7 chr8 chr9 chr10 chr11 chr12 chr13 chr14 chr15 chr16 chr17 chr18 chr19 chr20 chr21 chr22 chrX
+parameters:
+  # parameters passed to bioinformatic tools, subclassed by tool
+  bwa:
+        group: MT
+        platform: ILLUMINA
+  mpileup:
+        q: 20 
+        Q: 20
+        overlap: -x
+  varscan:
+        min_freq: 0.01
+        min_r2: 2      

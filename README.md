@@ -41,7 +41,7 @@ Two options will be work
    Given the output folder, where you want to put all the result into. 
    Given the project name, which match to the cell type, experimental design etc. 
 ```
-input=" /home/jinxu/scATAC/pipeline/ATAC_mito/pipelines/ATAC_mito_sc/example/test_data/"
+input="/home/jinxu/scATAC/pipeline/ATAC_mito/pipelines/ATAC_mito_sc/example/test_data/"
 output="/home/jinxu/develop/ATAC_mito_sc/example/output"
 project_name="test"
 ```
@@ -83,8 +83,9 @@ The script will take all the files from input folder and make sample list
 ```
 You can find the full command for running the pipeline in the example folder. 
 You can run them step by step or the whole set. 
-The pipeline is currently run in sequential for each cell rather than parallel (multiple cores(8 by default) are used in the mappiing step). It make easily adapte into parallel mode if needed in the future. 
+The pipeline is currently run in sequential for each cell rather than parallel (multiple cores(8 by default) are used in the mapping step). It make easily adapte into parallel mode if needed in the future. 
 
 ## Following Steps
+
 
 
