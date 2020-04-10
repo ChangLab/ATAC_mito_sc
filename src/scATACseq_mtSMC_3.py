@@ -302,7 +302,7 @@ cmd += " -T RealignerTargetCreator "
 #cmd += " -known " + Indel_vcf_s + " " 
 cmd += " -known " + res.MTIndel + " "
 cmd += " -known " + res.GIndel + " "
-cmd += " -nt " + pm.cores + " " 
+cmd += " -nt " + str(pm.cores) + " " 
 cmd += " -I " + rmdup_bam + " "
 cmd += " -o " + target_interval
 pm.run(cmd,target_interval)
@@ -316,7 +316,7 @@ cmd += "-T IndelRealigner "
 #cmd += " -known " + Indel_vcf_a + " "
 cmd += " -known " + res.GIndel + " "
 cmd += " -known " + res.MTIndel + " "
-#cmd += " -nt " + pm.cores + " "
+#cmd += " -nt " + str(pm.cores) + " "
 cmd += " -I " + rmdup_bam + " "
 cmd += " -targetIntervals " + target_interval
 cmd += " -o " + realigned_bam
