@@ -5,7 +5,10 @@ Description: This repository contains a pipeline to process scATACseq data.  It 
 
 Data: 2017-08-09
 
-Author: jinxu9@stanford.edu
+Author: Jin Xu 
+
+Email: xujin7@mail.sysu.edu.cn
+
 
 ## Installing 
 Currently the pipeline is based on pypiper, which is a python package for making robust pipeline for bioinformatics works.
@@ -84,6 +87,16 @@ The script will take all the files from input folder and make sample list
 You can find the full command for running the pipeline in the example folder. 
 You can run them step by step or the whole set. 
 The pipeline is currently run in sequential for each cell rather than parallel (multiple cores(8 by default) are used in the mapping step). It make easily adapte into parallel mode if needed in the future. 
+
+## Variants information for human population 
+GATK toolkit uses variants information from the population to improve the accuracy of SNP calling, these variant files can be found at :
+
+dbSNP:  
+https://ftp.ncbi.nih.gov/snp/latest_release/
+* Be carefule to match the version of reference genome 
+1K genomes: 
+ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/ALL.chrMT.phase3_callmom-v0_4.20130502.genotypes.vcf.gz
+
 
 ## Following analysis
 
